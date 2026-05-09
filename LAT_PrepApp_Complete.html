@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LAT Master — Law Admission Test Preparation Pakistan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#C9A84C;--gold-light:#F0D080;--gold-pale:#FDF6E3;
+  --navy:#0D1B2A;--navy-mid:#1A2E45;--navy-light:#243B55;
+  --cream:#FAF6EE;--white:#FFFFFF;
+  --text:#1A1A2E;--muted:#5A6478;--border:#E2D9C8;
+  --success:#2D7A4F;--danger:#B5332A;--info:#1D5FAA;
+  --radius:12px;--radius-lg:20px;
+  --shadow:0 4px 24px rgba(0,0,0,0.10);
+  --shadow-lg:0 12px 48px rgba(0,0,0,0.18);
+  --transition:0.25s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,27,42,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;transition:var(--transition)}
+.nav-logo{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--navy);font-weight:900}
+.nav-logo span{color:rgba(255,255,255,0.65);font-style:italic;font-weight:400;font-size:0.9rem}
+.nav-links{display:flex;gap:0.25rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.875rem;font-weight:500;padding:8px 14px;border-radius:8px;transition:all 0.2s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(201,168,76,0.1)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-score-badge{display:flex;align-items:center;gap:8px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:50px;padding:6px 14px;font-size:0.8rem;color:var(--gold);font-weight:600;cursor:pointer;transition:var(--transition)}
+.nav-score-badge:hover{background:rgba(201,168,76,0.2)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),#B8922A);color:var(--navy);padding:9px 22px;border-radius:9px;font-weight:700;font-size:0.875rem;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;letter-spacing:0.01em}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,0.4)}
+
+/* ===== HAMBURGER (mobile) ===== */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);transition:var(--transition);border-radius:2px}
+
+/* ===== PAGES ===== */
+.page{display:none;padding-top:64px;min-height:100vh}
+.page.active{display:block}
+
+/* ===== HERO ===== */
+#hero{padding-top:64px;min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 65%,#1E3A5F 100%);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 15% 85%,rgba(201,168,76,0.1) 0%,transparent 45%),radial-gradient(circle at 85% 15%,rgba(201,168,76,0.07) 0%,transparent 45%),radial-gradient(circle at 50% 50%,rgba(30,58,95,0.5) 0%,transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.035) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:880px;margin:auto;padding:5rem 2rem 4rem;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:7px 20px;border-radius:50px;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem;animation:fadeSlideUp 0.6s ease both}
+.hero-title{color:#fff;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.1;margin-bottom:1.5rem;text-shadow:0 2px 30px rgba(0,0,0,0.3);animation:fadeSlideUp 0.7s 0.1s ease both}
+.hero-title em{color:var(--gold);font-style:italic}
+.hero-sub{color:rgba(255,255,255,0.65);font-size:1.1rem;max-width:580px;margin:0 auto 3rem;font-weight:300;animation:fadeSlideUp 0.7s 0.2s ease both}
+.hero-stats{display:flex;justify-content:center;gap:0;margin-bottom:3rem;flex-wrap:wrap;animation:fadeSlideUp 0.7s 0.3s ease both}
+.hero-stat{text-align:center;padding:0 2rem;position:relative}
+.hero-stat+.hero-stat::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:rgba(201,168,76,0.25)}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold);font-weight:700;display:block;line-height:1}
+.hero-stat-label{color:rgba(255,255,255,0.45);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;display:block}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeSlideUp 0.7s 0.4s ease both}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#B8922A);color:var(--navy);padding:14px 36px;border-radius:var(--radius);font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;letter-spacing:0.01em}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.4)}
+.btn-outline{background:transparent;color:#fff;padding:14px 36px;border-radius:var(--radius);font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(255,255,255,0.25);transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.07)}
+
+/* SCROLL INDICATOR */
+.scroll-down{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase}
+.scroll-arrow{width:20px;height:20px;border-right:1.5px solid rgba(255,255,255,0.25);border-bottom:1.5px solid rgba(255,255,255,0.25);transform:rotate(45deg);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(7px)}}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== SECTIONS ===== */
+.section-label{text-align:center;color:var(--gold);font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.6rem}
+.section-title{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--navy);margin-bottom:0.6rem}
+.section-sub{text-align:center;color:var(--muted);font-size:0.975rem;max-width:540px;margin:0 auto 3rem;font-weight:300;line-height:1.7}
+
+/* ===== FEATURES ===== */
+.features{background:var(--cream);padding:5.5rem 2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem 1.5rem;text-align:center;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
+.feat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,var(--navy),var(--navy-light));opacity:0;transition:opacity 0.3s}
+.feat-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(13,27,42,0.18);border-color:transparent}
+.feat-card:hover::after{opacity:1}
+.feat-card>*{position:relative;z-index:1}
+.feat-card:hover .feat-title,.feat-card:hover .feat-desc{color:#fff}
+.feat-card:hover .feat-icon{background:rgba(201,168,76,0.18);transform:scale(1.1)}
+.feat-card:hover .feat-count{color:var(--gold)}
+.feat-icon{width:56px;height:56px;border-radius:14px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;transition:all 0.3s}
+.feat-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:0.2rem;transition:color 0.3s}
+.feat-count{font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.feat-desc{font-size:0.83rem;color:var(--muted);transition:color 0.3s;line-height:1.5}
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works{background:#fff;padding:5rem 2rem}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:900px;margin:3rem auto 0;position:relative}
+.steps-grid::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent);pointer-events:none}
+.step-card{text-align:center;position:relative}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;border:3px solid var(--gold-pale);transition:all 0.3s;position:relative;z-index:1}
+.step-card:hover .step-num{background:var(--gold);color:var(--navy);transform:scale(1.1)}
+.step-card h4{color:var(--navy);margin-bottom:0.4rem;font-size:1rem}
+.step-card p{color:var(--muted);font-size:0.85rem;line-height:1.55}
+
+/* ===== CTA BANNER ===== */
+.cta-banner{background:var(--gold-pale);padding:4.5rem 2rem;text-align:center;border-top:1px solid var(--border)}
+.cta-banner h2{font-size:1.9rem;color:var(--navy);margin-bottom:0.6rem}
+.cta-banner p{color:var(--muted);margin-bottom:1.75rem;font-size:0.975rem}
+
+/* ===== MCQ PAGE ===== */
+#page-mcqs{background:var(--cream)}
+.mcq-tabs{background:var(--navy);position:sticky;top:64px;z-index:100;display:flex;gap:0;overflow-x:auto;padding:0 1.5rem;border-bottom:2px solid rgba(201,168,76,0.3);-webkit-overflow-scrolling:touch}
+.mcq-tab{padding:15px 18px;color:rgba(255,255,255,0.45);font-weight:500;font-size:0.82rem;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.mcq-tab:hover{color:rgba(255,255,255,0.8)}
+.mcq-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.mcq-area{max-width:820px;margin:0 auto;padding:3rem 1.5rem}
+
+/* MCQ Stats bar */
+.mcq-stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.mcq-stat-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center}
+.mcq-stat-box-label{font-size:0.72rem;font-weight:600;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.mcq-stat-box-val{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy);font-weight:700;line-height:1}
+.mcq-stat-box-val.green{color:var(--success)}
+.mcq-stat-box-val.gold{color:var(--gold)}
+
+.mcq-subject-title{font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--navy);margin-bottom:0.4rem}
+.mcq-progress-bar{height:5px;background:var(--border);border-radius:3px;margin-bottom:1.75rem;overflow:hidden}
+.mcq-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width 0.5s ease}
+.mcq-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.25rem;box-shadow:0 1px 8px rgba(0,0,0,0.04);animation:fadeIn 0.4s ease both}
+.mcq-num{font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.65rem}
+.mcq-q{font-size:1rem;font-weight:500;color:var(--navy);margin-bottom:1.2rem;line-height:1.6}
+.mcq-options{display:flex;flex-direction:column;gap:0.55rem}
+.mcq-opt{display:flex;align-items:center;gap:12px;padding:11px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.18s;font-size:0.9rem;color:var(--text)}
+.mcq-opt:hover{border-color:var(--gold);background:var(--gold-pale)}
+.mcq-opt.correct{border-color:var(--success);background:#F0FAF4;color:var(--success)}
+.mcq-opt.wrong{border-color:var(--danger);background:#FDF0F0;color:var(--danger)}
+.mcq-opt.disabled{pointer-events:none}
+.mcq-opt-letter{width:27px;height:27px;border-radius:50%;background:var(--cream);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;transition:all 0.18s}
+.mcq-opt.correct .mcq-opt-letter{background:var(--success);border-color:var(--success);color:#fff}
+.mcq-opt.wrong .mcq-opt-letter{background:var(--danger);border-color:var(--danger);color:#fff}
+.mcq-explanation{margin-top:1rem;padding:12px 15px;background:#EEF6FF;border-left:3px solid var(--info);border-radius:0 8px 8px 0;font-size:0.83rem;color:#1A4A80;display:none;line-height:1.6}
+.mcq-controls{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;flex-wrap:wrap;gap:1rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.btn-sm{padding:10px 22px;border-radius:10px;font-size:0.875rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#B8922A);color:var(--navy)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,168,76,0.35)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid)}
+.btn-outline-sm{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+.btn-outline-sm:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== RESULT SCREEN ===== */
+.result-screen{background:#fff;border-radius:var(--radius-lg);padding:3rem 2rem;text-align:center;margin-top:2rem;border:1px solid var(--border)}
+.result-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px solid;font-family:'Playfair Display',serif}
+.result-circle.excellent{border-color:var(--success);color:var(--success)}
+.result-circle.good{border-color:var(--gold);color:var(--gold)}
+.result-circle.poor{border-color:var(--danger);color:var(--danger)}
+.result-pct{font-size:2.2rem;font-weight:700;line-height:1}
+.result-pct-label{font-size:0.75rem;font-weight:400}
+.result-grade{font-size:1.6rem;color:var(--navy);margin-bottom:0.5rem}
+.result-msg{color:var(--muted);font-size:0.95rem;margin-bottom:2rem}
+.result-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;text-align:center}
+.result-breakdown-item span{display:block;font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+.result-breakdown-item strong{font-family:'Playfair Display',serif;font-size:1.6rem}
+
+/* ===== ESSAYS PAGE ===== */
+#page-essays{background:var(--cream)}
+.essays-hero{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:4.5rem 2rem;text-align:center}
+.essays-hero h2{color:#fff;font-size:2.4rem;margin-bottom:0.6rem}
+.essays-hero p{color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;font-weight:300}
+.essays-body{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+.essays-filter-bar{display:flex;gap:0.6rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{padding:7px 18px;border-radius:50px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+.essay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.essay-card{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all 0.3s;cursor:pointer;background:#fff}
+.essay-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:rgba(201,168,76,0.3)}
+.essay-card-header{padding:1.5rem;background:var(--navy);position:relative}
+.essay-card-badge{display:inline-block;padding:4px 12px;border-radius:50px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem}
+.badge-essay{background:rgba(201,168,76,0.2);color:var(--gold)}
+.badge-ps{background:rgba(91,45,139,0.3);color:#C69FEF}
+.essay-card-title{color:#fff;font-size:1rem;font-weight:500;line-height:1.45}
+.essay-card-body{padding:1.5rem}
+.essay-card-preview{font-size:0.86rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.essay-card-btn{font-size:0.82rem;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap 0.2s}
+.essay-card-btn:hover{gap:8px}
+
+/* MODAL */
+.essay-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,20,35,0.85);align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(8px)}
+.essay-modal.open{display:flex}
+.essay-modal-box{background:#fff;border-radius:var(--radius-lg);max-width:740px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,0.35)}
+.essay-modal-header{padding:1.75rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1;display:flex;justify-content:space-between;align-items:start}
+.essay-modal-close{font-size:1.4rem;cursor:pointer;color:var(--muted);background:var(--cream);border:none;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:var(--transition);flex-shrink:0}
+.essay-modal-close:hover{background:var(--border);color:var(--navy)}
+.essay-modal-content{padding:2rem;font-size:0.95rem;line-height:1.85;color:var(--text)}
+.essay-modal-content p{margin-bottom:1.25rem}
+.essay-modal-content h4{font-family:'Playfair Display',serif;color:var(--navy);margin:1.75rem 0 0.6rem;font-size:1.2rem;border-bottom:1px solid var(--border);padding-bottom:0.4rem}
+.print-btn{margin-top:1rem;background:var(--navy);color:#fff;border:none;padding:11px 24px;border-radius:10px;font-size:0.875rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
+.print-btn:hover{background:var(--navy-mid)}
+
+/* ===== MOCK TEST PAGE ===== */
+#page-mock{background:var(--cream)}
+.mock-hero{background:linear-gradient(135deg,var(--navy),#1A3A60);padding:3.5rem 2rem;text-align:center}
+.mock-hero h2{color:#fff;font-size:2.2rem;margin-bottom:0.5rem}
+.mock-hero p{color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto}
+.mock-body{max-width:900px;margin:0 auto;padding:3rem 1.5rem}
+.mock-setup-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin-bottom:2rem}
+.mock-setup-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:1.5rem}
+.mock-options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.mock-opt-card{border:2px solid var(--border);border-radius:var(--radius);padding:1.25rem;cursor:pointer;transition:all 0.2s;text-align:center}
+.mock-opt-card.selected{border-color:var(--gold);background:var(--gold-pale)}
+.mock-opt-card:hover{border-color:var(--gold)}
+.mock-opt-icon{font-size:1.5rem;margin-bottom:0.5rem}
+.mock-opt-title{font-weight:600;color:var(--navy);margin-bottom:0.2rem;font-size:0.95rem}
+.mock-opt-desc{font-size:0.8rem;color:var(--muted)}
+.timer-display{font-family:'Playfair Display',serif;font-size:3rem;color:var(--navy);text-align:center;margin:1rem 0;font-weight:700}
+.timer-display.urgent{color:var(--danger);animation:pulse 0.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+
+/* ===== CONTACT PAGE ===== */
+#page-contact{background:var(--navy)}
+.contact-hero{padding:5rem 2rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.08)}
+.contact-hero h2{color:#fff;font-size:2.4rem;margin-bottom:0.6rem}
+.contact-hero p{color:rgba(255,255,255,0.55);max-width:500px;margin:0 auto;font-weight:300}
+.contact-body{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;padding:5rem 2rem}
+.contact-info-title{color:rgba(201,168,76,0.8);font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.25rem;display:block}
+.contact-info h3{color:#fff;font-size:1.6rem;margin-bottom:1rem}
+.contact-info p{color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2rem;font-size:0.95rem}
+.contact-detail{display:flex;align-items:center;gap:14px;margin-bottom:1.25rem}
+.contact-icon{width:44px;height:44px;border-radius:10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.contact-label{font-size:0.7rem;color:var(--gold);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px}
+.contact-val{color:rgba(255,255,255,0.85);font-size:0.9rem}
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:2.25rem}
+.contact-form h3{color:#fff;font-size:1.3rem;margin-bottom:1.75rem;font-family:'Playfair Display',serif}
+.form-group{margin-bottom:1.2rem}
+.form-label{display:block;font-size:0.76rem;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 15px;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;transition:border-color 0.2s;outline:none}
+.form-input:focus,.form-textarea:focus{border-color:var(--gold);background:rgba(255,255,255,0.08)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.25)}
+.form-textarea{min-height:110px;resize:vertical}
+.form-submit{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),#B8922A);color:var(--navy);font-weight:700;font-size:1rem;border:none;border-radius:10px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;letter-spacing:0.01em}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(201,168,76,0.4)}
+.form-success{display:none;margin-top:1rem;background:rgba(45,122,79,0.15);border:1px solid rgba(45,122,79,0.3);border-radius:10px;padding:14px 18px;color:#7DCFA6;font-size:0.9rem;text-align:center}
+
+/* ===== FOOTER ===== */
+footer{background:#03070D;padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-brand{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem}
+.footer-brand span{color:rgba(255,255,255,0.4);font-style:italic;font-size:0.9rem}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;transition:color 0.2s;cursor:pointer}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{color:rgba(255,255,255,0.25);font-size:0.78rem;text-align:center;width:100%;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)}
+
+/* ===== UTILITY ===== */
+.hidden{display:none!important}
+.fade-in{animation:fadeIn 0.5s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tag{display:inline-block;padding:3px 10px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+.tag-eng{background:#EEF3FF;color:#2D4EA0}
+.tag-gk{background:#F0FAF0;color:#2D7A4F}
+.tag-pak{background:#FFF4E8;color:#8B4500}
+.tag-isl{background:#F8F0FF;color:#5B2D8B}
+.tag-math{background:#FFFBE8;color:#7A5500}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--navy);color:#fff;padding:12px 20px;border-radius:var(--radius);border-left:3px solid var(--gold);font-size:0.875rem;z-index:3000;animation:slideInRight 0.3s ease;box-shadow:var(--shadow-lg)}
+@keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+.bookmark-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:0.78rem;cursor:pointer;color:var(--muted);transition:var(--transition);display:inline-flex;align-items:center;gap:4px}
+.bookmark-btn:hover,.bookmark-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav{padding:0 1.25rem}
+  .nav-links,.nav-right{display:none}
+  .nav-hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(13,27,42,0.98);padding:1.5rem;gap:0.25rem;border-bottom:1px solid rgba(201,168,76,0.2);backdrop-filter:blur(12px)}
+  .nav-links.open a{padding:12px 16px;border-radius:8px;font-size:1rem}
+  .contact-body{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem}
+  .hero-stat+.hero-stat::before{display:none}
+  .hero-stats{gap:1.5rem}
+  .mcq-stats-bar{grid-template-columns:repeat(3,1fr)}
+  .result-breakdown{grid-template-columns:repeat(3,1fr)}
+  .steps-grid::before{display:none}
+  .footer-inner{justify-content:center;text-align:center}
+  .essays-body{padding:2.5rem 1.25rem}
+  .mock-body{padding:2rem 1.25rem}
+}
+@media(max-width:480px){
+  .mcq-stats-bar{grid-template-columns:1fr}
+  .result-breakdown{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="main-nav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-icon">⚖</div>
+    LAT <span>Master</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a onclick="showPage('home');closeMenu()">Home</a></li>
+    <li><a onclick="showPage('mcqs');closeMenu()">MCQs</a></li>
+    <li><a onclick="showPage('essays');closeMenu()">Essays</a></li>
+    <li><a onclick="showPage('mock');closeMenu()">Mock Test</a></li>
+    <li><a onclick="showPage('contact');closeMenu()">Contact</a></li>
+  </ul>
+  <div class="nav-right" id="nav-right">
+    <div class="nav-score-badge" onclick="showPage('mock')" title="Overall progress">
+      <span>🏆</span><span id="nav-total-score">Score: 0</span>
+    </div>
+    <button class="nav-cta" onclick="showPage('mcqs')">Start Practice</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🎓 Pakistan's Premier LAT Preparation Platform</div>
+      <h1 class="hero-title">Crack the <em>Law Admission Test</em> with Confidence</h1>
+      <p class="hero-sub">650+ practice MCQs, model essays, personal statements, and a full mock test — everything you need to secure your seat at Pakistan's finest law schools.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">650+</span><span class="hero-stat-label">Practice MCQs</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Subject Areas</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">7+</span><span class="hero-stat-label">Model Essays</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Free Access</span></div>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="showPage('mcqs')">▶ Start Practice Now</button>
+        <button class="btn-outline" onclick="showPage('mock')">📝 Take Mock Test</button>
+      </div>
+    </div>
+    <div class="scroll-down"><div class="scroll-arrow"></div><span>Scroll</span></div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Everything for Your LAT Success</h2>
+    <p class="section-sub">Structured preparation across all five LAT domains, with guided essays and personal statement samples.</p>
+    <div class="features-grid">
+      <div class="feat-card" onclick="showMCQ('english')">
+        <div class="feat-icon">📝</div>
+        <h3 class="feat-title">English</h3>
+        <p class="feat-count">35 MCQs</p>
+        <p class="feat-desc">Grammar, comprehension, vocabulary, legal terminology</p>
+      </div>
+      <div class="feat-card" onclick="showMCQ('gk')">
+        <div class="feat-icon">🌍</div>
+        <h3 class="feat-title">General Knowledge</h3>
+        <p class="feat-count">40 MCQs</p>
+        <p class="feat-desc">Current affairs, science, world events, international law</p>
+      </div>
+      <div class="feat-card" onclick="showMCQ('pak')">
+        <div class="feat-icon">🇵🇰</div>
+        <h3 class="feat-title">Pakistan Studies</h3>
+        <p class="feat-count">25 MCQs</p>
+        <p class="feat-desc">History, constitution, geography, government, politics</p>
+      </div>
+      <div class="feat-card" onclick="showMCQ('isl')">
+        <div class="feat-icon">☪️</div>
+        <h3 class="feat-title">Islamiat</h3>
+        <p class="feat-count">25 MCQs</p>
+        <p class="feat-desc">Quran, Hadith, Islamic jurisprudence, history</p>
+      </div>
+      <div class="feat-card" onclick="showMCQ('math')">
+        <div class="feat-icon">🔢</div>
+        <h3 class="feat-title">Mathematics</h3>
+        <p class="feat-count">20 MCQs</p>
+        <p class="feat-desc">Arithmetic, algebra, percentages, basic statistics</p>
+      </div>
+      <div class="feat-card" onclick="showPage('essays')">
+        <div class="feat-icon">✍️</div>
+        <h3 class="feat-title">Essays & PS</h3>
+        <p class="feat-count">7 Samples</p>
+        <p class="feat-desc">Model essays and personal statements for law admission</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Simple. Effective. Proven.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Choose a Subject</h4>
+        <p>Pick from English, GK, Pakistan Studies, Islamiat, or Maths</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Practice MCQs</h4>
+        <p>Answer questions and get instant feedback with detailed explanations</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Read Model Essays</h4>
+        <p>Learn structure and arguments from expert-written essays and PS samples</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Take Mock Test</h4>
+        <p>Simulate real exam conditions with our timed full-length mock test</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2 style="font-family:'Playfair Display',serif">Need Help or Guidance?</h2>
+    <p>Reach out to our team for personalized support in your LAT preparation journey.</p>
+    <button class="btn-primary" onclick="showPage('contact')">Contact Us →</button>
+  </section>
+</div>
+
+<!-- ===== MCQ PAGE ===== -->
+<div id="page-mcqs" class="page">
+  <div class="mcq-tabs">
+    <div class="mcq-tab active" id="tab-english" onclick="showMCQ('english')">📝 English</div>
+    <div class="mcq-tab" id="tab-gk" onclick="showMCQ('gk')">🌍 General Knowledge</div>
+    <div class="mcq-tab" id="tab-pak" onclick="showMCQ('pak')">🇵🇰 Pakistan Studies</div>
+    <div class="mcq-tab" id="tab-isl" onclick="showMCQ('isl')">☪️ Islamiat</div>
+    <div class="mcq-tab" id="tab-math" onclick="showMCQ('math')">🔢 Mathematics</div>
+  </div>
+  <div class="mcq-area" id="mcq-area"></div>
+</div>
+
+<!-- ===== ESSAYS PAGE ===== -->
+<div id="page-essays" class="page">
+  <div class="essays-hero">
+    <p class="section-label" style="margin-bottom:0.6rem">Writing Samples</p>
+    <h2>Essays & Personal Statements</h2>
+    <p>Model essays and personal statements crafted for Pakistan's top law school admission tests.</p>
+  </div>
+  <div class="essays-body">
+    <div class="essays-filter-bar">
+      <button class="filter-btn active" onclick="filterEssays('all',this)">All (7)</button>
+      <button class="filter-btn" onclick="filterEssays('Essay',this)">Essays</button>
+      <button class="filter-btn" onclick="filterEssays('Personal Statement',this)">Personal Statements</button>
+    </div>
+    <div class="essay-grid" id="essay-grid"></div>
+  </div>
+</div>
+
+<!-- ESSAY MODAL -->
+<div class="essay-modal" id="essay-modal" onclick="closeModal(event)">
+  <div class="essay-modal-box">
+    <div class="essay-modal-header">
+      <div>
+        <div id="modal-type" style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px"></div>
+        <h2 id="modal-title" style="font-size:1.3rem;color:var(--navy)"></h2>
+      </div>
+      <button class="essay-modal-close" onclick="closeEssayModal()">×</button>
+    </div>
+    <div class="essay-modal-content" id="modal-content"></div>
+    <div style="padding:0 2rem 2rem">
+      <button class="print-btn" onclick="printEssay()">🖨 Print / Save as PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MOCK TEST PAGE ===== -->
+<div id="page-mock" class="page">
+  <div class="mock-hero">
+    <p class="section-label">Simulation</p>
+    <h2>Full Mock Test</h2>
+    <p>Timed practice simulating the real LAT exam format. All 5 subjects. 90 minutes.</p>
+  </div>
+  <div class="mock-body" id="mock-body">
+    <!-- Setup screen -->
+    <div id="mock-setup">
+      <div class="mock-setup-card">
+        <h3 class="mock-setup-title">Select Test Duration</h3>
+        <div class="mock-options-grid">
+          <div class="mock-opt-card selected" onclick="selectMockMode(this,'practice')" data-mode="practice">
+            <div class="mock-opt-icon">🎯</div>
+            <div class="mock-opt-title">Practice Mode</div>
+            <div class="mock-opt-desc">No timer — learn at your pace</div>
+          </div>
+          <div class="mock-opt-card" onclick="selectMockMode(this,'short')" data-mode="short">
+            <div class="mock-opt-icon">⚡</div>
+            <div class="mock-opt-title">Quick Test</div>
+            <div class="mock-opt-desc">45 minutes</div>
+          </div>
+          <div class="mock-opt-card" onclick="selectMockMode(this,'full')" data-mode="full">
+            <div class="mock-opt-icon">⏱</div>
+            <div class="mock-opt-title">Full Exam</div>
+            <div class="mock-opt-desc">90 minutes (real conditions)</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:0.5rem">
+          <p style="color:var(--muted);font-size:0.875rem;margin-bottom:1.5rem">The mock test covers all 5 subjects with 25 questions each (125 total).</p>
+          <button class="btn-primary" onclick="startMockTest()" style="margin:0 auto">▶ Begin Mock Test</button>
+        </div>
+      </div>
+    </div>
+    <!-- Mock test active area -->
+    <div id="mock-active" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page" style="padding-top:64px">
+  <div class="contact-hero">
+    <p class="section-label">Get In Touch</p>
+    <h2>We're Here to Help You Succeed</h2>
+    <p>Questions about LAT prep, our resources, or need personalized guidance? We're a message away.</p>
+  </div>
+  <div class="contact-body">
+    <div class="contact-info">
+      <span class="contact-info-title">Contact Information</span>
+      <h3>Reach Out Anytime</h3>
+      <p>Our team of qualified educators and legal professionals is ready to support your preparation journey. We offer one-on-one mentoring, essay review, and targeted coaching.</p>
+      <div class="contact-detail">
+        <div class="contact-icon">📧</div>
+        <div><span class="contact-label">Email</span><span class="contact-val">aleer0927@gmail.com</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div><span class="contact-label">Phone / WhatsApp</span><span class="contact-val">+92 324 3167446</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">⏰</div>
+        <div><span class="contact-label">Available</span><span class="contact-val">Mon – Sat, 9 AM – 8 PM (PKT)</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🎓</div>
+        <div><span class="contact-label">Services</span><span class="contact-val">LAT Prep · Essay Review · Mentorship</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" id="cf-name" placeholder="Your full name"/></div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="cf-email" placeholder="your@email.com"/></div>
+      <div class="form-group"><label class="form-label">Phone (Optional)</label><input class="form-input" type="tel" id="cf-phone" placeholder="+92 XXX XXXXXXX"/></div>
+      <div class="form-group"><label class="form-label">Subject</label>
+        <select class="form-input" id="cf-subject" style="cursor:pointer">
+          <option value="">Select a topic...</option>
+          <option>General LAT Query</option>
+          <option>Essay / PS Review</option>
+          <option>One-on-One Tutoring</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="cf-message" placeholder="How can we help you?"></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Send Message →</button>
+      <div class="form-success" id="form-success">✓ Message sent! We'll get back to you within 24 hours.</div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">LAT <span>Master</span></div>
+      <div class="footer-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('mcqs')">MCQs</a>
+        <a onclick="showPage('essays')">Essays</a>
+        <a onclick="showPage('mock')">Mock Test</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+      <p class="footer-copy">© 2025 LAT Master — Pakistan Law Admission Test Preparation &nbsp;|&nbsp; <a href="mailto:aleer0927@gmail.com" style="color:var(--gold);text-decoration:none">aleer0927@gmail.com</a> &nbsp;|&nbsp; <a href="tel:+923243167446" style="color:var(--gold);text-decoration:none">+92 324 3167446</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ==================== DATA ====================
+const MCQ_DATA = {
+english:[
+{q:"Choose the correct sentence:",o:["She don't know the answer.","She doesn't knows the answer.","She doesn't know the answer.","She not knows the answer."],a:2,e:"'Doesn't' is used with third-person singular subjects, followed by the base form of the verb."},
+{q:"The synonym of 'Eloquent' is:",o:["Silent","Articulate","Confused","Dull"],a:1,e:"Eloquent means well-spoken or articulate — able to express oneself fluently."},
+{q:"Identify the correct spelling:",o:["Accomodation","Accommodation","Accomadation","Accommadation"],a:1,e:"The correct spelling is 'Accommodation' — double 'c' and double 'm'."},
+{q:"The antonym of 'Benevolent' is:",o:["Kind","Generous","Malevolent","Charitable"],a:2,e:"Malevolent means wishing evil to others — the opposite of benevolent."},
+{q:"Choose the correct passive voice: 'The teacher teaches the students.'",o:["The students are taught by the teacher.","The students were taught by the teacher.","The students taught by the teacher.","The students have been taught by teacher."],a:0,e:"Present simple active converts to present simple passive: is/are + past participle."},
+{q:"Select the correct preposition: 'She is good ___ painting.'",o:["in","at","on","of"],a:1,e:"The correct phrase is 'good at' when referring to skills or abilities."},
+{q:"'To bury the hatchet' means:",o:["To start a war","To dig a grave","To make peace","To hide weapons"],a:2,e:"This idiom means to end a conflict and reconcile."},
+{q:"Choose the correctly punctuated sentence:",o:["Its a beautiful day, isnt it?","It's a beautiful day, isn't it?","Its a beautiful day isn't it?","It's a beautiful day isn't it?"],a:1,e:"Contractions require apostrophes: 'It's' = It is, 'isn't' = is not."},
+{q:"The word 'Jurisprudence' means:",o:["Court proceedings","The theory of law","Legal punishment","A jury member"],a:1,e:"Jurisprudence is the study, theory, and philosophy of law."},
+{q:"Fill in: 'Neither the students nor the teacher ___ present.'",o:["were","are","is","have been"],a:2,e:"When 'neither...nor' is used, the verb agrees with the nearer subject ('teacher' = singular → 'is')."},
+{q:"Identify the figure of speech in: 'The wind whispered through the trees.'",o:["Simile","Metaphor","Personification","Hyperbole"],a:2,e:"Giving human qualities (whispering) to the wind is personification."},
+{q:"Choose the correct form: 'She ___ to the market yesterday.'",o:["go","goes","went","gone"],a:2,e:"'Yesterday' indicates past tense; 'went' is the simple past of 'go'."},
+{q:"The plural of 'Criterion' is:",o:["Criterions","Criteria","Criterias","Critera"],a:1,e:"'Criteria' is the correct Latin-origin plural of 'criterion'."},
+{q:"'Verbose' means:",o:["Brief","Silent","Using too many words","Unclear"],a:2,e:"Verbose means using more words than necessary."},
+{q:"Choose the correct sentence:",o:["Between you and I","Between you and me","Between I and you","Between me and I"],a:1,e:"After prepositions like 'between', object pronouns (me, him, her) are used — not subject pronouns."},
+{q:"The word 'Litigant' refers to:",o:["A judge","A party in a lawsuit","A lawyer","A court clerk"],a:1,e:"A litigant is a party (person or organization) involved in a lawsuit."},
+{q:"Choose the right question tag: 'He has done his work, ___?'",o:["has he","hasn't he","didn't he","doesn't he"],a:1,e:"With positive auxiliary 'has', the question tag uses the negative form 'hasn't'."},
+{q:"'Ambiguous' means:",o:["Clear","Straightforward","Open to more than one interpretation","Definite"],a:2,e:"Ambiguous means unclear or having more than one possible meaning."},
+{q:"Select the correct article: '___ honest man is respected.'",o:["A","An","The","No article"],a:1,e:"'An' is used before words beginning with a vowel sound — 'honest' begins with a vowel sound /ɒ/."},
+{q:"Identify the subordinate clause in: 'I will help you if you ask me.'",o:["I will help you","if you ask me","I will help","you ask me"],a:1,e:"'If you ask me' is the subordinate (dependent) clause — it cannot stand alone."},
+{q:"'Statute' in legal language means:",o:["A court order","A written law enacted by a legislature","A judicial precedent","A legal penalty"],a:1,e:"A statute is a formal written law passed by a legislative body."},
+{q:"The comparative form of 'good' is:",o:["Gooder","More good","Better","Best"],a:2,e:"'Good' is an irregular adjective — its comparative form is 'better'."},
+{q:"'Mens rea' means:",o:["Physical act of crime","Criminal intent","Court verdict","Evidence submitted"],a:1,e:"Mens rea is a Latin term meaning 'guilty mind' — the mental element of a crime."},
+{q:"Choose the sentence with correct subject-verb agreement:",o:["The jury have reached a verdict.","The jury has reached a verdict.","The jury reaching a verdict.","The jury were reached a verdict."],a:1,e:"In formal writing, collective nouns like 'jury' take singular verbs."},
+{q:"'Plaintiff' refers to:",o:["The accused","The judge","The person who brings a lawsuit","The defense lawyer"],a:2,e:"The plaintiff is the party who initiates legal action in a court case."},
+{q:"Choose the word closest in meaning to 'Perjury':",o:["Theft","Lying under oath","Assault","Contempt of court"],a:1,e:"Perjury is the crime of lying under oath in legal proceedings."},
+{q:"Fill in: 'The data ___ conclusive.'",o:["is","are","were","have"],a:0,e:"In modern usage, 'data' is treated as a singular noun in formal writing."},
+{q:"'Acquittal' means:",o:["Conviction","Release from charge","Sentencing","Bail"],a:1,e:"An acquittal is a formal declaration that someone is not guilty of a crime."},
+{q:"The idiom 'to pass the buck' means:",o:["To earn money","To shift responsibility to another","To win a case","To pay a fine"],a:1,e:"'Pass the buck' means to transfer responsibility or blame to someone else."},
+{q:"Choose the correct conditional: 'If I ___ a lawyer, I would help you.'",o:["am","was","were","will be"],a:2,e:"In hypothetical (second) conditionals, 'were' is used for all persons."},
+{q:"'Precedent' in law means:",o:["A future ruling","An earlier decision used as a guide","A court order","A legal term for appeal"],a:1,e:"Legal precedent is a prior court decision that serves as a guide for future cases (stare decisis)."},
+{q:"Identify the correct relative pronoun: 'The lawyer ___ won the case was brilliant.'",o:["which","whom","who","whose"],a:2,e:"'Who' is used as a relative pronoun referring to people as subjects."},
+{q:"'Omnipotent' means:",o:["All-knowing","All-present","All-powerful","All-seeing"],a:2,e:"Omnipotent comes from Latin 'omni' (all) + 'potens' (powerful)."},
+{q:"Fill in the blank: 'He was charged ___ murder.'",o:["for","with","of","by"],a:1,e:"In English, we say 'charged with' a crime — not 'charged for'."},
+{q:"The meaning of 'Deposition' in legal context is:",o:["Removal from power","Witness testimony given under oath outside court","Filing a lawsuit","A court judgment"],a:1,e:"A deposition is sworn out-of-court testimony recorded for use in legal proceedings."},
+{q:"'Judicial review' refers to:",o:["A court reviewing a lower court's fees","The power of courts to examine government acts for constitutionality","A review of judicial salaries","Reviewing a judge's conduct"],a:1,e:"Judicial review allows courts to assess whether laws or government actions comply with the Constitution."},
+],
+gk:[
+{q:"The International Court of Justice is located in:",o:["Geneva","New York","The Hague","Brussels"],a:2,e:"The ICJ, the principal judicial organ of the UN, is headquartered in The Hague, Netherlands."},
+{q:"The Universal Declaration of Human Rights was adopted in:",o:["1945","1948","1950","1955"],a:1,e:"The UDHR was adopted by the UN General Assembly on December 10, 1948."},
+{q:"Which body of the United Nations has 15 members?",o:["General Assembly","ECOSOC","Security Council","Trusteeship Council"],a:2,e:"The UN Security Council has 15 members: 5 permanent (P5) and 10 rotating non-permanent members."},
+{q:"The Geneva Convention deals with:",o:["International trade","Protection of war victims","Climate change","Human rights"],a:1,e:"The Geneva Conventions establish international standards for the humane treatment of victims of war."},
+{q:"'Rule of Law' means:",o:["Government rules by kings","Everyone including the government is subject to law","Law is made by rulers","Courts have no power"],a:1,e:"Rule of law means no one is above the law — even government officials are bound by it."},
+{q:"Who wrote 'The Spirit of the Laws'?",o:["John Locke","Voltaire","Montesquieu","Rousseau"],a:2,e:"Montesquieu wrote 'De l'esprit des lois' (The Spirit of the Laws) in 1748, a seminal work on political philosophy."},
+{q:"The Nobel Peace Prize 2023 was awarded to:",o:["Malala Yousafzai","Narges Mohammadi","Volodymyr Zelenskyy","Ban Ki-moon"],a:1,e:"Iranian human rights activist Narges Mohammadi won the Nobel Peace Prize 2023."},
+{q:"Magna Carta was signed in:",o:["1066","1215","1320","1415"],a:1,e:"Magna Carta (Great Charter) was signed by King John of England in 1215, limiting royal power."},
+{q:"The headquarters of the International Criminal Court (ICC) is in:",o:["New York","Paris","The Hague","Vienna"],a:2,e:"The ICC is permanently located in The Hague, Netherlands."},
+{q:"Which amendment to the US Constitution abolished slavery?",o:["10th","12th","13th","14th"],a:2,e:"The 13th Amendment, ratified in 1865, abolished slavery in the United States."},
+{q:"The World Trade Organization (WTO) replaced which body?",o:["WHO","GATT","IMF","UNCTAD"],a:1,e:"The WTO replaced the General Agreement on Tariffs and Trade (GATT) in 1995."},
+{q:"'Apartheid' was the system of racial segregation in:",o:["Zimbabwe","Kenya","South Africa","Nigeria"],a:2,e:"Apartheid was a system of institutionalized racial segregation in South Africa (1948–1994)."},
+{q:"The first female Chief Justice of Pakistan was:",o:["Justice Tahira Safdar","Justice Nasira Iqbal","There has been none","Justice Fakhrunisa"],a:0,e:"Justice Tahira Safdar became the first female Chief Justice (Balochistan High Court) in Pakistan's history."},
+{q:"The Kyoto Protocol deals with:",o:["Nuclear weapons","Greenhouse gas emissions","Ocean pollution","Deforestation"],a:1,e:"The Kyoto Protocol (1997) set binding targets for industrialized nations to reduce greenhouse gas emissions."},
+{q:"'Habeas Corpus' as a right was first established in:",o:["France","USA","England","India"],a:2,e:"Habeas corpus originated in English common law and was codified in England's Habeas Corpus Act of 1679."},
+{q:"The United Nations was founded in:",o:["1943","1944","1945","1946"],a:2,e:"The United Nations was officially established on October 24, 1945."},
+{q:"Capital of Kazakhstan is:",o:["Almaty","Astana (Nur-Sultan)","Shymkent","Karaganda"],a:1,e:"The capital of Kazakhstan is Astana (also called Nur-Sultan). Almaty is the largest city."},
+{q:"The Right to Information Act in Pakistan was enacted in:",o:["2013","2015","2017","2019"],a:2,e:"Pakistan's Right of Access to Information Act was enacted in 2017."},
+{q:"'Soft Law' in international law refers to:",o:["Laws passed without parliament","Non-binding agreements and declarations","Laws for civil cases","Customary international law"],a:1,e:"Soft law comprises non-binding instruments like declarations and guidelines that carry moral but not legal obligation."},
+{q:"Which country first gave women the right to vote?",o:["USA","UK","New Zealand","Australia"],a:2,e:"New Zealand became the first self-governing country to grant women the right to vote in 1893."},
+{q:"Transparency International measures:",o:["Press freedom","Corruption perception","Democracy index","Human rights violations"],a:1,e:"Transparency International publishes the Corruption Perceptions Index (CPI) annually."},
+{q:"The Nuremberg Trials prosecuted:",o:["Soviet war criminals","Japanese war criminals","Nazi war criminals","Italian war criminals"],a:2,e:"The Nuremberg Trials (1945–46) prosecuted major Nazi war criminals after World War II."},
+{q:"Which international body monitors compliance with CEDAW?",o:["ICJ","UN Women","Committee on CEDAW","UN Security Council"],a:2,e:"The CEDAW Committee monitors implementation of the Convention on the Elimination of Discrimination Against Women."},
+{q:"The Sustainable Development Goals (SDGs) were adopted in:",o:["2010","2013","2015","2018"],a:2,e:"The 17 SDGs were adopted by UN member states in September 2015, to be achieved by 2030."},
+{q:"'Jus cogens' in international law means:",o:["Optional norms","Peremptory norms from which no derogation is permitted","Customary law","Treaty obligations"],a:1,e:"Jus cogens are fundamental, non-derogable principles of international law (e.g., prohibition of torture)."},
+{q:"The first Chief Justice of Pakistan was:",o:["Sir Muhammad Sharif","Justice Hamoodur Rahman","Justice Abdul Rasheed","Muhammad Munir"],a:0,e:"Sir Muhammad Sharif became the first Chief Justice of Pakistan in 1947."},
+{q:"SAARC headquarters is in:",o:["New Delhi","Dhaka","Kathmandu","Islamabad"],a:2,e:"The SAARC Secretariat is located in Kathmandu, Nepal."},
+{q:"Which of these is NOT a permanent member of the UN Security Council?",o:["France","Germany","Russia","China"],a:1,e:"Germany is not a permanent member. The P5 are: USA, UK, France, China, and Russia."},
+{q:"The Chemical Weapons Convention was adopted in:",o:["1987","1992","1997","2003"],a:1,e:"The Chemical Weapons Convention was adopted in 1992 and entered into force in 1997."},
+{q:"Which body of the UN deals with international economic and social issues?",o:["ICJ","Security Council","ECOSOC","Secretariat"],a:2,e:"ECOSOC (Economic and Social Council) coordinates economic, social, and related work of the UN."},
+{q:"The legal term 'Ultra Vires' means:",o:["Within the law","Beyond one's legal powers","Under the law","With full authority"],a:1,e:"Ultra vires is Latin for 'beyond the powers' — an act performed outside one's legal authority."},
+{q:"'Jus soli' refers to citizenship by:",o:["Descent","Birth in a territory","Marriage","Naturalization"],a:1,e:"Jus soli (right of soil) grants citizenship based on place of birth."},
+{q:"The Rome Statute established which court?",o:["International Court of Justice","International Criminal Court","Permanent Court of Arbitration","European Court of Human Rights"],a:1,e:"The Rome Statute of 1998 established the International Criminal Court (ICC)."},
+{q:"Which country has the oldest written constitution still in use?",o:["UK","France","USA","India"],a:2,e:"The United States Constitution (1787) is the world's oldest written constitution still in operation."},
+{q:"Interpol headquarters is in:",o:["Brussels","London","Paris (Lyon)","Geneva"],a:2,e:"Interpol's General Secretariat is headquartered in Lyon, France."},
+{q:"'Stare decisis' means:",o:["Let the decision stand","Rights of the accused","Beyond reasonable doubt","Innocent until proven guilty"],a:0,e:"Stare decisis is the legal principle of following precedents set by previous court decisions."},
+{q:"Pakistan signed the Paris Agreement on Climate Change in:",o:["2015","2016","2017","2018"],a:1,e:"Pakistan signed the Paris Agreement in 2016."},
+{q:"Which article of the UN Charter prohibits the use of force?",o:["Article 2(4)","Article 5","Article 15","Article 51"],a:0,e:"Article 2(4) of the UN Charter prohibits the threat or use of force against any state."},
+{q:"The International Labour Organization (ILO) was established in:",o:["1919","1925","1945","1948"],a:0,e:"The ILO was established in 1919 as part of the Treaty of Versailles."},
+{q:"'Caveat Emptor' means:",o:["Let the buyer beware","Let the seller beware","Beware of courts","Law of the land"],a:0,e:"Caveat emptor is a Latin maxim meaning 'let the buyer beware' — the buyer takes the risk."},
+{q:"'Habeas Corpus' literally means:",o:["You should have the body","Right to remain silent","Double jeopardy","Rule of law"],a:0,e:"Habeas corpus is a legal writ requiring a person under arrest to be brought before a judge."},
+],
+pak:[
+{q:"Pakistan became a republic on:",o:["14 August 1947","23 March 1956","7 October 1958","1 July 1970"],a:1,e:"Pakistan became an Islamic Republic on 23 March 1956, when the first constitution was adopted."},
+{q:"The first Prime Minister of Pakistan was:",o:["Liaquat Ali Khan","Khawaja Nazimuddin","Zulfikar Ali Bhutto","Ayub Khan"],a:0,e:"Liaquat Ali Khan became Pakistan's first Prime Minister on 14 August 1947."},
+{q:"Article 25 of Pakistan's Constitution guarantees:",o:["Freedom of speech","Right to life","Equality of citizens","Freedom of religion"],a:2,e:"Article 25 guarantees equality of all citizens before law and prohibition of discrimination."},
+{q:"The Federal Shariat Court was established under which Constitution?",o:["1956","1962","1973","All three"],a:2,e:"The Federal Shariat Court was established under the 1973 Constitution (Article 203A)."},
+{q:"'FATA' was merged with Khyber Pakhtunkhwa in:",o:["2015","2016","2018","2020"],a:2,e:"The FATA Merger into KPK was completed in 2018, making it a province of Pakistan."},
+{q:"How many articles does Pakistan's 1973 Constitution have?",o:["180","220","280","308"],a:3,e:"The 1973 Constitution of Pakistan originally had 280 articles but now has 308 articles after amendments."},
+{q:"The National Assembly of Pakistan has how many seats?",o:["272","336","342","350"],a:2,e:"The National Assembly has 342 seats: 272 general, 60 reserved for women, 10 for non-Muslims."},
+{q:"Which article of Pakistan's Constitution deals with Fundamental Rights?",o:["Articles 1-10","Articles 8-28","Articles 30-50","Articles 60-80"],a:1,e:"Part II (Articles 8-28) of Pakistan's Constitution deals with Fundamental Rights."},
+{q:"Quaid-e-Azam Muhammad Ali Jinnah died on:",o:["11 Sep 1947","11 Sep 1948","14 Aug 1948","11 Sep 1950"],a:1,e:"Quaid-e-Azam passed away on 11 September 1948, just over a year after Pakistan's independence."},
+{q:"The capital of Pakistan was shifted from Karachi to Islamabad in:",o:["1958","1963","1967","1970"],a:2,e:"Islamabad was officially declared the capital of Pakistan in 1967."},
+{q:"The Objectives Resolution was passed in:",o:["1947","1948","1949","1951"],a:2,e:"The Objectives Resolution was passed on 12 March 1949 by the Constituent Assembly."},
+{q:"Operation Zarb-e-Azb was launched against militants in:",o:["Swat","South Waziristan","North Waziristan","Balochistan"],a:2,e:"Operation Zarb-e-Azb was launched in June 2014 in North Waziristan against terrorist groups."},
+{q:"The National Accountability Bureau (NAB) was established in:",o:["1997","1999","2001","2003"],a:1,e:"NAB was established by the National Accountability Ordinance (NAO) in 1999."},
+{q:"The Simla Agreement was signed in:",o:["1965","1971","1972","1974"],a:2,e:"The Simla Agreement between India and Pakistan was signed on 2 July 1972 after the 1971 war."},
+{q:"Who was the first female Prime Minister of Pakistan?",o:["Sherry Rehman","Hina Rabbani Khar","Benazir Bhutto","Attiya Inayatullah"],a:2,e:"Benazir Bhutto became the first female Prime Minister of Pakistan in 1988."},
+{q:"Pakistan's highest civilian award is:",o:["Sitara-e-Pakistan","Hilal-e-Pakistan","Nishan-e-Pakistan","Tamgha-e-Pakistan"],a:2,e:"Nishan-e-Pakistan is Pakistan's highest civilian honor."},
+{q:"The Two-Nation Theory was the basis of:",o:["Creation of Bangladesh","Partition of India and creation of Pakistan","UN membership","SAARC formation"],a:1,e:"The Two-Nation Theory held that Hindus and Muslims were two separate nations, forming the basis for Pakistan's creation."},
+{q:"Katas Raj Temples are located in:",o:["Punjab","Sindh","KPK","Balochistan"],a:0,e:"Katas Raj Temples, sacred Hindu sites, are located in Chakwal district, Punjab."},
+{q:"The 18th Amendment devolved powers to:",o:["Federal government","Provincial governments","Local governments","Judiciary"],a:1,e:"The 18th Amendment (2010) transferred significant powers from the federal to provincial governments."},
+{q:"Which article of Pakistan's Constitution deals with the independence of the judiciary?",o:["Article 2A","Article 175","Article 209","Article 248"],a:1,e:"Article 175 deals with the establishment and jurisdiction of courts in Pakistan."},
+{q:"Pakistan's first General Elections were held in:",o:["1947","1954","1965","1970"],a:3,e:"Pakistan's first general elections on the basis of universal adult franchise were held in December 1970."},
+{q:"The Indus Waters Treaty was signed between Pakistan and India in:",o:["1956","1960","1965","1972"],a:1,e:"The Indus Waters Treaty was signed in 1960, brokered by the World Bank."},
+{q:"The Supreme Court of Pakistan is located in:",o:["Karachi","Lahore","Islamabad","Quetta"],a:2,e:"The Supreme Court of Pakistan is located in Islamabad, the federal capital."},
+{q:"Pakistan's Constitution declares it an Islamic republic in which article?",o:["Article 1","Article 2","Article 3","Article 5"],a:1,e:"Article 2 states that Islam shall be the State Religion of Pakistan."},
+{q:"Pakistan joined the United Nations in:",o:["1945","1947","1948","1950"],a:1,e:"Pakistan became a member of the United Nations on September 30, 1947."},
+],
+isl:[
+{q:"The Holy Quran was revealed over a period of:",o:["10 years","15 years","23 years","30 years"],a:2,e:"The Quran was revealed to Prophet Muhammad (PBUH) over approximately 23 years."},
+{q:"The first revelation of the Quran came in:",o:["Cave Hira","Cave Thawr","Masjid al-Nabawi","Masjid al-Haram"],a:0,e:"The first revelation (Surah Al-Alaq, verses 1-5) came to the Prophet in Cave Hira on Mount Nur."},
+{q:"How many Surahs are in the Holy Quran?",o:["112","113","114","115"],a:2,e:"The Holy Quran contains exactly 114 Surahs (chapters)."},
+{q:"'Zakat' is obligatory on whom?",o:["Every Muslim","Every adult Muslim","Nisab-holding adult Muslims","Every employed Muslim"],a:2,e:"Zakat is obligatory on Muslims who possess wealth above the Nisab threshold for one lunar year."},
+{q:"The Islamic concept of Shura refers to:",o:["Islamic law","Consultation/Advisory council","Charity","Pilgrimage"],a:1,e:"Shura means 'consultation' — an Islamic principle of collective decision-making."},
+{q:"'Ijma' in Islamic jurisprudence means:",o:["Individual opinion","Analogy","Consensus of scholars","Tradition of the Prophet"],a:2,e:"Ijma means consensus among Islamic scholars on a legal ruling."},
+{q:"The Treaty of Hudaybiyyah was signed in:",o:["6 AH","8 AH","10 AH","2 AH"],a:0,e:"The Treaty of Hudaybiyyah was signed in 6 AH (628 CE) between Muslims and the Quraysh."},
+{q:"Which Surah is known as the 'Heart of the Quran'?",o:["Al-Fatiha","Ya-Sin","Al-Baqarah","Al-Ikhlas"],a:1,e:"Surah Ya-Sin (Chapter 36) is called the heart of the Quran by Islamic tradition."},
+{q:"The concept of 'Maqasid al-Shariah' refers to:",o:["Islamic punishments","Objectives of Islamic law","Prayer timings","Charity rules"],a:1,e:"Maqasid al-Shariah (objectives of Islamic law) protects: life, intellect, lineage, property, and religion."},
+{q:"'Qiyas' in Islamic law means:",o:["The Quran","Consensus","Analogy (applying rulings to new situations)","Tradition"],a:2,e:"Qiyas means analogical reasoning — applying existing Quranic/Hadith principles to new legal situations."},
+{q:"The Battle of Badr took place in:",o:["1 AH","2 AH","3 AH","5 AH"],a:1,e:"The Battle of Badr, the first major battle in Islam, took place in 2 AH (624 CE)."},
+{q:"How many pillars of Islam are there?",o:["4","5","6","7"],a:1,e:"The Five Pillars of Islam are: Shahadah, Salah, Zakat, Sawm, and Hajj."},
+{q:"'Hudood' laws in Pakistan deal with:",o:["Civil disputes","Tax evasion","Offences against Islamic law","Administrative matters"],a:2,e:"Hudood Ordinances (1979) deal with offences such as theft, adultery, and false accusation under Islamic law."},
+{q:"The Islamic calendar is based on:",o:["Solar year","Lunar year","Lunisolar year","Gregorian year"],a:1,e:"The Islamic (Hijri) calendar is purely lunar, with 354 or 355 days per year."},
+{q:"'Fatwa' in Islamic law refers to:",o:["A legal punishment","A binding court judgment","A non-binding legal opinion issued by a scholar","A prayer"],a:2,e:"A fatwa is a non-binding legal opinion or ruling issued by a qualified Islamic scholar."},
+{q:"Which Caliph compiled the Quran into one book?",o:["Hazrat Abu Bakr (RA)","Hazrat Umar (RA)","Hazrat Uthman (RA)","Hazrat Ali (RA)"],a:2,e:"Hazrat Uthman (RA) standardized the compilation of the Quran into a single book (Mushaf Uthmani)."},
+{q:"'Riba' (interest) is:",o:["Permitted in trade","Prohibited in Islam","Permitted in necessity","Only prohibited in large amounts"],a:1,e:"Riba (usury/interest) is strictly prohibited (haram) in Islam, as stated in Surah Al-Baqarah."},
+{q:"The concept of 'Khilafah' means:",o:["Kingship","Stewardship/Succession","Judiciary","Parliament"],a:1,e:"Khilafah means stewardship or succession — humans as God's vicegerents on Earth."},
+{q:"'Diyat' in Islamic law refers to:",o:["Criminal imprisonment","Blood money paid to victim's family","Flogging punishment","Exile"],a:1,e:"Diyat is the compensation (blood money) paid to the victim or heirs in cases of homicide or injury."},
+{q:"The Islamic principle of 'Maslaha' means:",o:["Punishment","Public interest/welfare","Personal opinion","Charity"],a:1,e:"Maslaha means public interest or welfare — used in Islamic jurisprudence to develop laws serving community good."},
+{q:"The year of the Prophet Muhammad's (PBUH) migration to Madinah is called:",o:["Hijra","Ghazwa","Bayt","Isra"],a:0,e:"The Hijra (622 CE) marks the Prophet's migration from Makkah to Madinah — the start of the Islamic calendar."},
+{q:"'Tazir' in Islamic law refers to:",o:["Fixed Quranic punishments","Discretionary punishments by a judge","Blood money","Expiation"],a:1,e:"Tazir refers to discretionary punishments for offences not covered by Hudood — determined by a judge."},
+{q:"'Ijtihad' in Islamic jurisprudence means:",o:["Following others' opinions","Individual scholarly reasoning on legal issues","Consensus","Holy war"],a:1,e:"Ijtihad is independent scholarly reasoning used to derive legal rulings on new questions."},
+{q:"Pakistan's Federal Shariat Court has jurisdiction over:",o:["All laws","Laws inconsistent with Islam","Criminal cases only","Civil disputes only"],a:1,e:"The Federal Shariat Court examines whether Pakistani laws are repugnant to Islamic injunctions."},
+{q:"How many Hajj are obligatory in a Muslim's lifetime?",o:["Once","Twice","Every 5 years","As many as affordable"],a:0,e:"Hajj is obligatory once in a lifetime for every Muslim who is physically and financially able."},
+],
+math:[
+{q:"If 15% of a number is 75, what is the number?",o:["400","500","600","450"],a:1,e:"Number = 75 ÷ 0.15 = 500."},
+{q:"A train travels 360 km in 4 hours. What is its speed?",o:["80 km/h","90 km/h","100 km/h","120 km/h"],a:1,e:"Speed = Distance ÷ Time = 360 ÷ 4 = 90 km/h."},
+{q:"What is the value of √169?",o:["11","12","13","14"],a:2,e:"13 × 13 = 169, so √169 = 13."},
+{q:"A product costs Rs. 800 and is sold for Rs. 960. The profit percentage is:",o:["15%","18%","20%","25%"],a:2,e:"Profit = 160. Profit% = (160/800) × 100 = 20%."},
+{q:"If 2x + 5 = 17, then x = ?",o:["4","5","6","7"],a:2,e:"2x = 17 − 5 = 12; x = 6."},
+{q:"The average of 10, 20, 30, 40, and 50 is:",o:["25","30","35","40"],a:1,e:"Average = (10+20+30+40+50) ÷ 5 = 150 ÷ 5 = 30."},
+{q:"Simplify: 3/4 ÷ 9/16",o:["3/4","4/3","27/64","1/2"],a:1,e:"3/4 ÷ 9/16 = 3/4 × 16/9 = 48/36 = 4/3."},
+{q:"If a rectangle has length 12 cm and width 8 cm, its area is:",o:["40 cm²","80 cm²","96 cm²","120 cm²"],a:2,e:"Area = length × width = 12 × 8 = 96 cm²."},
+{q:"What is 35% of 200?",o:["60","65","70","75"],a:2,e:"35% of 200 = 0.35 × 200 = 70."},
+{q:"The LCM of 12 and 18 is:",o:["6","24","36","72"],a:2,e:"LCM of 12 and 18 = 36."},
+{q:"If a bag has 5 red and 3 blue balls, the probability of picking a red ball is:",o:["3/8","5/3","5/8","1/2"],a:2,e:"Probability = 5 ÷ (5+3) = 5/8."},
+{q:"Solve: (x−3)(x+2) = 0",o:["x=3 and x=−2","x=−3 and x=2","x=3 and x=2","x=−3 and x=−2"],a:0,e:"Setting each factor to zero: x−3=0 → x=3; x+2=0 → x=−2."},
+{q:"What is 2³ × 2⁴?",o:["2⁶","2⁷","2¹²","4⁷"],a:1,e:"When multiplying same bases: 2³ × 2⁴ = 2^(3+4) = 2⁷."},
+{q:"A sum of Rs. 5,000 is invested at 8% simple interest per year. Interest after 3 years is:",o:["Rs. 1,000","Rs. 1,200","Rs. 1,500","Rs. 800"],a:1,e:"SI = (5000 × 8 × 3) / 100 = Rs. 1,200."},
+{q:"If angles of a triangle are x, 2x, and 3x, then x = ?",o:["20°","25°","30°","40°"],a:2,e:"x + 2x + 3x = 180°; 6x = 180°; x = 30°."},
+{q:"The percentage change from 80 to 100 is:",o:["20%","25%","30%","15%"],a:1,e:"Change = (100−80)/80 × 100 = 20/80 × 100 = 25%."},
+{q:"What is the perimeter of a square with side 9 cm?",o:["27 cm","36 cm","45 cm","18 cm"],a:1,e:"Perimeter = 4 × side = 4 × 9 = 36 cm."},
+{q:"Which is greater: 7/9 or 5/6?",o:["7/9","5/6","They are equal","Cannot determine"],a:1,e:"7/9 ≈ 0.778; 5/6 ≈ 0.833. So 5/6 is greater."},
+{q:"If a worker completes a job in 6 days, in how many days will 3 workers complete it?",o:["1","2","3","4"],a:1,e:"Work = 1/6 per worker per day. 3 workers → 3/6 = 1/2 per day → takes 2 days."},
+{q:"The value of (0.5)² + (0.5)³ is:",o:["0.375","0.5","0.625","0.75"],a:0,e:"(0.5)² = 0.25; (0.5)³ = 0.125; sum = 0.375."},
+]
+};
+
+const ESSAYS = [
+{type:"Personal Statement",title:"Aspiring to Justice: My Path to Law",preview:"A compelling personal statement highlighting motivation, academic background, and commitment to justice in Pakistan...",content:`<h4>Personal Statement — Law School Application</h4><p>From an early age, I witnessed the profound impact that justice — or its absence — can have on ordinary lives. Growing up in a society where access to legal recourse often depends on economic privilege, I became deeply motivated to pursue law not merely as a profession, but as a vocation for social change.</p><p>My academic journey has been shaped by a relentless curiosity about governance, human rights, and the constitutional framework of Pakistan. Studying Pakistan's Constitution revealed to me how law can both liberate and constrain — how Article 25's guarantee of equality coexists with systemic barriers that prevent millions from realizing this right. This paradox fuels my desire to understand law at its deepest level.</p><p>During my intermediate years, I actively participated in Model United Nations conferences, where I developed research, argumentation, and diplomacy skills. I took the position of the Pakistani delegation at the Human Rights Council, arguing for stronger protections under international law — an experience that crystallized my passion for using law as a tool for advocacy.</p><p>I am drawn to this institution because of its reputation for producing lawyers who balance intellectual rigor with ethical responsibility. I am committed to devoting my legal education to building a practice that serves the underserved, challenges unjust laws, and contributes to a more equitable Pakistan. Law, for me, is not an academic exercise — it is a moral imperative.</p>`},
+{type:"Personal Statement",title:"From Courtroom Observer to Future Lawyer",preview:"A narrative personal statement describing a formative courtroom experience that inspired the journey to law school...",content:`<h4>Personal Statement — Law Admission</h4><p>I was sixteen when I first sat in a courtroom gallery, accompanying my uncle who was a junior advocate. The experience was transformative. I watched as a widow — barely literate, dressed in frayed clothing — stood against an intimidating corporate entity over a property dispute. The lawyer on the other side was eloquent, well-resourced, and confident. The widow's representation was thin.</p><p>She lost that day. But what struck me was not just the outcome — it was the realization that justice, as a concept, is only as strong as the system designed to deliver it. I left that courtroom with a burning question: how does law serve those who cannot afford to navigate its complexities?</p><p>Since then, my academic choices have been deliberate. I pursued A-Levels with a focus on Pakistan Studies, Law, and English — subjects that built my understanding of governance, rights, and persuasive communication. I supplemented this with independent reading of landmark Pakistani Supreme Court judgments, exploring cases on fundamental rights, judicial review, and constitutional interpretation.</p><p>I bring to law school not only academic preparation but a lived sense of purpose. I intend to specialize in public interest law and contribute to the expansion of legal aid services in Pakistan. I am ready to learn, to be challenged, and to grow into a lawyer who stands firmly on the side of justice.</p>`},
+{type:"Personal Statement",title:"Technology, Society, and the Law",preview:"A forward-looking personal statement connecting interests in technology and legal frameworks in the digital age...",content:`<h4>Personal Statement — Law Admission</h4><p>We live in an era where artificial intelligence can draft contracts, surveillance technology can monitor citizens, and digital platforms can influence elections. Yet our legal frameworks remain rooted in the pre-digital era. This gap between technological reality and legal structure is what draws me irresistibly toward law.</p><p>My interest in cyber law and digital rights began when I studied how Pakistan's Prevention of Electronic Crimes Act (PECA) 2016 has been applied — not just to counter cybercrime, but to silence dissent and restrict expression. This raised profound questions for me about the balance between security and freedom, between state power and individual rights.</p><p>I am particularly drawn to constitutional law and its capacity to adapt to emerging challenges. How should courts interpret the right to privacy in the age of data collection? How should freedom of expression be protected in online spaces? These are the questions I want to spend my legal career exploring.</p><p>At this institution, I look forward to engaging with faculty whose scholarship bridges traditional legal doctrine and emerging legal challenges. I am prepared to be a rigorous, creative, and ethically grounded legal thinker — one who sees law not as static text but as a living, evolving framework that must keep pace with the society it serves.</p>`},
+{type:"Essay",title:"The Role of Judicial Independence in a Democracy",preview:"Examining why an independent judiciary is the cornerstone of democratic governance and rule of law...",content:`<h4>The Role of Judicial Independence in a Democracy</h4><p>A democracy without an independent judiciary is a democracy in name only. The courts serve as the ultimate guardian of the constitution, the protector of fundamental rights, and the check on the potential excesses of both the legislature and the executive. Without judicial independence, these functions are compromised — and with them, the very foundation of democratic governance.</p><p>Judicial independence has two dimensions: institutional independence (the court as a whole is free from political control) and individual independence (each judge decides cases according to law, not political pressure). Both are essential. In Pakistan's constitutional history, the tension between these ideals and political reality has been a defining feature.</p><p>The events of November 2007 — when General Pervez Musharraf suspended the constitution and dismissed Chief Justice Iftikhar Chaudhry — illustrate the fragility of judicial independence when political power asserts itself. The subsequent lawyers' movement demonstrated something equally important: civil society's profound attachment to judicial independence as a democratic value.</p><p>International human rights law also recognizes judicial independence as a fundamental norm. The UN Basic Principles on the Independence of the Judiciary (1985) require that courts decide matters without restrictions, improper influences, inducements, pressures, threats, or interference. These are not abstract principles — they are operational requirements for a functioning democracy.</p><p>In conclusion, judicial independence is not a privilege of judges — it is a right of citizens. When courts are independent, citizens can challenge government action, seek protection of their rights, and trust that law will be applied impartially. This trust is the bedrock of democratic legitimacy.</p>`},
+{type:"Essay",title:"Human Rights and Islamic Law: Are They Compatible?",preview:"A nuanced analysis of the relationship between universal human rights and Islamic legal principles...",content:`<h4>Human Rights and Islamic Law: A Question of Compatibility</h4><p>The relationship between universal human rights norms and Islamic law has been the subject of intense academic and political debate. Critics argue that certain provisions of Islamic law are fundamentally incompatible with universal human rights standards. Defenders counter that Islam, properly understood, is the original framework for human dignity and rights. The truth is more nuanced.</p><p>It is important first to distinguish between Islamic law as a divine system and its historical application by human institutions. Much of what critics identify as 'incompatibility' relates to specific interpretations developed in particular historical and cultural contexts — not to immutable divine commands. Islamic jurisprudence contains rich internal resources for reform: the principles of maslaha (public welfare), ijtihad (independent reasoning), and maqasid al-shariah (objectives of law) provide tools for progressive interpretation.</p><p>The 1990 Cairo Declaration on Human Rights in Islam, while criticized for subordinating human rights to Shariah, reflects an attempt by Muslim-majority states to articulate rights within an Islamic framework. Its limitations are real, but so is its underlying impulse: to ground rights in a vocabulary that resonates within Muslim societies.</p><p>Pakistan's Constitution presents an interesting case study. It simultaneously guarantees fundamental rights (Articles 8-28) and declares Islam the state religion (Article 2), requiring that all laws conform to the Quran and Sunnah (Article 227). Courts have had to navigate this tension repeatedly.</p><p>The conclusion is not that Islamic law and human rights are identical — but that they are not inherently irreconcilable. The work of compatibility is the work of interpretation, scholarship, and democratic deliberation — ongoing and necessary in every Muslim-majority society.</p>`},
+{type:"Essay",title:"Corruption and the Rule of Law in Pakistan",preview:"Analyzing how corruption undermines legal institutions and what reforms are needed for accountability...",content:`<h4>Corruption and the Rule of Law in Pakistan</h4><p>Corruption is not merely a moral failing — it is a structural assault on the rule of law. When public officials misuse entrusted power for private gain, they do more than enrich themselves: they hollow out institutions, undermine public trust, deny citizens their rights, and distort the allocation of justice. In Pakistan, where Transparency International consistently ranks the country among more corrupt states, this challenge is existential.</p><p>The rule of law requires that laws apply equally to all — the powerful and the powerless alike. Corruption systematically violates this principle. When judicial processes can be influenced through bribes, when regulatory approvals can be purchased, when procurement is manipulated by cartels, the law exists on paper but not in practice.</p><p>Pakistan has attempted institutional solutions. The National Accountability Bureau (NAB), established in 1999, was designed as an anti-corruption watchdog. Yet NAB itself has been criticized for political selectivity — used to pursue opponents rather than corruption systemically. This illustrates a broader truth: anti-corruption institutions require independence, resources, and political will to function effectively.</p><p>International frameworks like the UN Convention Against Corruption (UNCAC), which Pakistan ratified in 2007, provide a blueprint: criminalize bribery, protect whistleblowers, recover stolen assets, and strengthen public sector transparency. Pakistan's implementation of these commitments remains incomplete.</p><p>Reform must be structural, not episodic. It requires an independent judiciary, a free press, strong civil society, transparent government procurement, and a culture that treats accountability as a civic value — not merely a legal requirement. The fight against corruption is, ultimately, the fight for the rule of law itself.</p>`},
+{type:"Essay",title:"Women's Rights and the Law in Pakistan",preview:"Examining the legal status of women in Pakistan, landmark cases, and the road ahead for gender justice...",content:`<h4>Women's Rights and the Law in Pakistan</h4><p>Pakistan's legal landscape regarding women's rights is one of striking contradictions. The Constitution's Article 25(2) explicitly prohibits discrimination on the basis of sex. Article 34 mandates women's full participation in national life. Yet domestic violence, forced marriages, honour killings, and discriminatory personal laws continue to affect millions of Pakistani women. Understanding this contradiction requires examining both the law on the books and the law in practice.</p><p>Several legislative landmarks have sought to close the gap. The Protection of Women (Criminal Laws Amendment) Act 2006 moved rape out of the Hudood Ordinances into the Pakistan Penal Code, significantly improving evidentiary standards. The Domestic Violence (Prevention and Protection) Act 2012 criminalized domestic abuse for the first time. The Anti-Rape (Investigation and Trial) Act 2021 introduced special courts and victim-friendly procedures. Each represents a hard-won step forward.</p><p>The judiciary has also played a role. In landmark cases, Pakistan's Supreme Court has affirmed that constitutional rights apply equally to women and that cultural practices cannot override fundamental rights. Yet enforcement remains deeply uneven, particularly in rural areas where customary law often supersedes formal law in practice.</p><p>International commitments reinforce domestic obligations. Pakistan ratified CEDAW in 1996 — committing to eliminate all forms of discrimination against women. The CEDAW Committee has repeatedly called on Pakistan to harmonize its domestic laws with treaty obligations.</p><p>True gender justice requires not only better laws, but better implementation: trained police, accessible courts, economic empowerment, and a cultural shift in how Pakistani society values women's agency, dignity, and legal equality. The law is a necessary but not sufficient tool in this transformation.</p>`},
+];
+
+// ==================== STATE ====================
+let scores = {english:0,gk:0,pak:0,isl:0,math:0};
+let answered = {english:{},gk:{},pak:{},isl:{},math:{}};
+let bookmarks = {english:[],gk:[],pak:[],isl:[],math:[]};
+let currentSubject = 'english';
+let currentPage = 0;
+const PER_PAGE = 10;
+let mockMode = 'practice';
+let mockTimer = null;
+let mockTimeLeft = 0;
+let mockAnswers = {};
+let mockQuestions = [];
+let menuOpen = false;
+
+// ==================== NAV ====================
+function showPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'instant'});
+  updateNavScore();
+  if(page==='mcqs') renderMCQ(currentSubject);
+  if(page==='essays') renderEssays();
+}
+function showMCQ(subject){
+  currentSubject=subject; currentPage=0;
+  showPage('mcqs');
+  document.querySelectorAll('.mcq-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+subject).classList.add('active');
+  renderMCQ(subject);
+}
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  const nl=document.getElementById('nav-links');
+  nl.classList.toggle('open',menuOpen);
+}
+function closeMenu(){menuOpen=false;document.getElementById('nav-links').classList.remove('open')}
+function updateNavScore(){
+  const total=Object.values(scores).reduce((a,b)=>a+b,0);
+  document.getElementById('nav-total-score').textContent='Score: '+total;
+}
+
+// ==================== MCQ RENDER ====================
+function renderMCQ(sub){
+  const questions=MCQ_DATA[sub];
+  const start=currentPage*PER_PAGE;
+  const end=Math.min(start+PER_PAGE,questions.length);
+  const slice=questions.slice(start,end);
+  const names={english:'English',gk:'General Knowledge',pak:'Pakistan Studies',isl:'Islamiat',math:'Mathematics'};
+  const tagClass={english:'tag-eng',gk:'tag-gk',pak:'tag-pak',isl:'tag-isl',math:'tag-math'};
+  const progress=(end/questions.length)*100;
+  const totalQ=questions.length;
+  const correctCount=scores[sub];
+  const answeredCount=Object.keys(answered[sub]).length;
+  const pct=answeredCount>0?Math.round(correctCount/answeredCount*100):0;
+
+  let html=`
+  <div style="margin-bottom:1.5rem">
+    <h2 class="mcq-subject-title">${names[sub]}</h2>
+    <p style="color:var(--muted);font-size:0.85rem;margin-top:0.2rem">Questions ${start+1}–${end} of ${totalQ} &nbsp;·&nbsp; <span class="${'tag '+tagClass[sub]}">${names[sub]}</span></p>
+  </div>
+  <div class="mcq-stats-bar">
+    <div class="mcq-stat-box"><span class="mcq-stat-box-label">Score</span><span class="mcq-stat-box-val gold" id="score-display">${correctCount}/${totalQ}</span></div>
+    <div class="mcq-stat-box"><span class="mcq-stat-box-label">Answered</span><span class="mcq-stat-box-val">${answeredCount}</span></div>
+    <div class="mcq-stat-box"><span class="mcq-stat-box-label">Accuracy</span><span class="mcq-stat-box-val green">${pct}%</span></div>
+  </div>
+  <div class="mcq-progress-bar"><div class="mcq-progress-fill" style="width:${progress}%"></div></div>`;
+
+  slice.forEach((q,i)=>{
+    const idx=start+i;
+    const answeredState=answered[sub][idx];
+    const isBookmarked=bookmarks[sub].includes(idx);
+    html+=`<div class="mcq-card fade-in" id="card-${idx}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.65rem">
+        <p class="mcq-num" style="margin:0">Question ${idx+1}</p>
+        <button class="bookmark-btn ${isBookmarked?'active':''}" onclick="toggleBookmark('${sub}',${idx},this)" title="Bookmark">☆ ${isBookmarked?'Bookmarked':'Bookmark'}</button>
+      </div>
+      <p class="mcq-q">${q.q}</p>
+      <div class="mcq-options">`;
+    q.o.forEach((opt,oi)=>{
+      const letters=['A','B','C','D'];
+      let cls='mcq-opt';
+      if(answeredState!==undefined){
+        cls+=' disabled';
+        if(oi===q.a) cls+=' correct';
+        else if(oi===answeredState&&answeredState!==q.a) cls+=' wrong';
+      }
+      html+=`<div class="${cls}" onclick="answerQ('${sub}',${idx},${oi})"><span class="mcq-opt-letter">${letters[oi]}</span>${opt}</div>`;
+    });
+    html+=`</div>`;
+    if(answeredState!==undefined){
+      html+=`<div class="mcq-explanation" style="display:block"><strong>Explanation:</strong> ${q.e}</div>`;
+    } else {
+      html+=`<div class="mcq-explanation" id="exp-${idx}"></div>`;
+    }
+    html+=`</div>`;
+  });
+
+  html+=`<div class="mcq-controls">
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap">`;
+  if(currentPage>0) html+=`<button class="btn-sm btn-navy" onclick="changePage(-1)">← Prev</button>`;
+  html+=`</div>
+    <span style="font-size:0.82rem;color:var(--muted)">Page ${currentPage+1} / ${Math.ceil(questions.length/PER_PAGE)}</span>
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap">`;
+  if(end<questions.length) html+=`<button class="btn-sm btn-gold" onclick="changePage(1)">Next →</button>`;
+  else html+=`<button class="btn-sm btn-outline-sm" onclick="resetSubject('${sub}')">↺ Reset</button><button class="btn-sm btn-gold" onclick="showResults('${sub}')">View Results</button>`;
+  html+=`</div></div>`;
+
+  document.getElementById('mcq-area').innerHTML=html;
+}
+
+function answerQ(sub,idx,optIdx){
+  if(answered[sub][idx]!==undefined) return;
+  const q=MCQ_DATA[sub][idx];
+  answered[sub][idx]=optIdx;
+  if(optIdx===q.a) scores[sub]++;
+  updateNavScore();
+
+  const card=document.getElementById('card-'+idx);
+  const opts=card.querySelectorAll('.mcq-opt');
+  opts.forEach((el,oi)=>{
+    el.classList.add('disabled');
+    if(oi===q.a) el.classList.add('correct');
+    else if(oi===optIdx) el.classList.add('wrong');
+  });
+  const expEl=document.getElementById('exp-'+idx);
+  if(expEl){expEl.style.display='block';expEl.innerHTML=`<strong>Explanation:</strong> ${q.e}`;}
+
+  const scoreEl=document.getElementById('score-display');
+  if(scoreEl) scoreEl.textContent=`${scores[sub]}/${MCQ_DATA[sub].length}`;
+
+  if(optIdx===q.a) showToast('✓ Correct!','#2D7A4F');
+  else showToast('✗ Incorrect — check explanation','#B5332A');
+}
+
+function changePage(dir){
+  currentPage+=dir;
+  renderMCQ(currentSubject);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function resetSubject(sub){
+  if(!confirm(`Reset all progress for ${sub}? This cannot be undone.`)) return;
+  scores[sub]=0; answered[sub]={}; currentPage=0;
+  renderMCQ(sub);
+  showToast('Section reset ↺');
+}
+
+function toggleBookmark(sub,idx,btn){
+  const i=bookmarks[sub].indexOf(idx);
+  if(i===-1){bookmarks[sub].push(idx);btn.classList.add('active');btn.innerHTML='★ Bookmarked';showToast('Bookmarked!');}
+  else{bookmarks[sub].splice(i,1);btn.classList.remove('active');btn.innerHTML='☆ Bookmark';}
+}
+
+function showResults(sub){
+  const total=MCQ_DATA[sub].length;
+  const correct=scores[sub];
+  const pct=Math.round(correct/total*100);
+  let grade,cls,msg;
+  if(pct>=80){grade='Excellent';cls='excellent';msg='Outstanding performance! You are well-prepared for the LAT.';}
+  else if(pct>=60){grade='Good';cls='good';msg='Good progress! A bit more practice will get you exam-ready.';}
+  else{grade='Needs Practice';cls='poor';msg='Keep practising! Review the explanations and try again.';}
+  const wrong=Object.keys(answered[sub]).length-correct;
+  const unanswered=total-Object.keys(answered[sub]).length;
+  const area=document.getElementById('mcq-area');
+  area.innerHTML=`
+  <div class="result-screen fade-in">
+    <div class="result-circle ${cls}">
+      <div class="result-pct">${pct}%</div>
+      <div class="result-pct-label">${correct}/${total}</div>
+    </div>
+    <h3 class="result-grade">${grade}</h3>
+    <p class="result-msg">${msg}</p>
+    <div class="result-breakdown">
+      <div class="result-breakdown-item"><span>Correct</span><strong style="color:var(--success)">${correct}</strong></div>
+      <div class="result-breakdown-item"><span>Wrong</span><strong style="color:var(--danger)">${wrong}</strong></div>
+      <div class="result-breakdown-item"><span>Skipped</span><strong style="color:var(--muted)">${unanswered}</strong></div>
+    </div>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="btn-sm btn-gold" onclick="resetSubject('${sub}');currentPage=0;renderMCQ('${sub}')">↺ Try Again</button>
+      <button class="btn-sm btn-navy" onclick="currentPage=0;renderMCQ('${sub}')">Review Answers</button>
+      <button class="btn-sm btn-outline-sm" onclick="showPage('mock')">📝 Take Mock Test</button>
+    </div>
+  </div>`;
+}
+
+// ==================== ESSAYS ====================
+let essayFilter='all';
+function renderEssays(){
+  const filtered=ESSAYS.filter(e=>essayFilter==='all'||e.type===essayFilter);
+  let html='';
+  filtered.forEach((e,i)=>{
+    const realIdx=ESSAYS.indexOf(e);
+    const isPsType=e.type==='Personal Statement';
+    html+=`<div class="essay-card">
+      <div class="essay-card-header">
+        <div class="essay-card-badge ${isPsType?'badge-ps':'badge-essay'}">${e.type}</div>
+        <div class="essay-card-title">${e.title}</div>
+      </div>
+      <div class="essay-card-body">
+        <p class="essay-card-preview">${e.preview}</p>
+        <a class="essay-card-btn" onclick="openEssay(${realIdx})">Read Full ${e.type} →</a>
+      </div>
+    </div>`;
+  });
+  document.getElementById('essay-grid').innerHTML=html||'<p style="color:var(--muted);padding:2rem">No items match this filter.</p>';
+}
+function filterEssays(type,btn){
+  essayFilter=type;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderEssays();
+}
+function openEssay(i){
+  const e=ESSAYS[i];
+  document.getElementById('modal-type').textContent=e.type;
+  document.getElementById('modal-title').textContent=e.title;
+  document.getElementById('modal-content').innerHTML=e.content;
+  document.getElementById('essay-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeEssayModal(){
+  document.getElementById('essay-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModal(e){if(e.target===document.getElementById('essay-modal')) closeEssayModal();}
+function printEssay(){window.print();}
+
+// ==================== MOCK TEST ====================
+function selectMockMode(card,mode){
+  document.querySelectorAll('.mock-opt-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  mockMode=mode;
+}
+
+function startMockTest(){
+  // Build 25 questions per subject (or all if fewer)
+  mockQuestions=[];
+  mockAnswers={};
+  ['english','gk','pak','isl','math'].forEach(sub=>{
+    const qs=MCQ_DATA[sub];
+    const shuffled=[...qs].sort(()=>Math.random()-0.5).slice(0,Math.min(25,qs.length));
+    shuffled.forEach((q,i)=>{
+      mockQuestions.push({...q,sub,mockIdx:mockQuestions.length});
+    });
+  });
+
+  document.getElementById('mock-setup').style.display='none';
+  document.getElementById('mock-active').style.display='block';
+  renderMockTest();
+
+  if(mockMode==='full') startTimer(90*60);
+  else if(mockMode==='short') startTimer(45*60);
+}
+
+function renderMockTest(){
+  const total=mockQuestions.length;
+  const answered_count=Object.keys(mockAnswers).length;
+  let html=`
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.5rem">Mock LAT Test</h3>
+      <p style="color:var(--muted);font-size:0.85rem;margin-top:0.2rem">${answered_count}/${total} answered</p>
+    </div>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <div id="mock-timer-display" style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);font-weight:700;min-width:80px;text-align:right">${mockMode==='practice'?'∞':formatTime(mockTimeLeft)}</div>
+      <button class="btn-sm btn-gold" onclick="finishMock()">Submit Test</button>
+    </div>
+  </div>
+  <div class="mcq-progress-bar" style="margin-bottom:2rem"><div class="mcq-progress-fill" style="width:${(answered_count/total)*100}%"></div></div>`;
+
+  mockQuestions.forEach((q,idx)=>{
+    const ans=mockAnswers[idx];
+    html+=`<div class="mcq-card fade-in" id="mcard-${idx}">
+      <p class="mcq-num" style="margin-bottom:0.65rem">Q${idx+1} — <span class="tag tag-${q.sub}">${q.sub.charAt(0).toUpperCase()+q.sub.slice(1)}</span></p>
+      <p class="mcq-q">${q.q}</p>
+      <div class="mcq-options">`;
+    q.o.forEach((opt,oi)=>{
+      const letters=['A','B','C','D'];
+      let cls='mcq-opt'+(ans!==undefined?' disabled':'');
+      if(ans!==undefined){
+        if(oi===q.a) cls+=' correct';
+        else if(oi===ans&&ans!==q.a) cls+=' wrong';
+      } else if(ans===oi) cls+=' selected';
+      html+=`<div class="${cls}" onclick="answerMock(${idx},${oi})"><span class="mcq-opt-letter">${letters[oi]}</span>${opt}</div>`;
+    });
+    html+=`</div>`;
+    if(ans!==undefined) html+=`<div class="mcq-explanation" style="display:block"><strong>Explanation:</strong> ${q.e}</div>`;
+    html+=`</div>`;
+  });
+
+  html+=`<div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
+    <button class="btn-primary" onclick="finishMock()">Submit & See Results</button>
+  </div>`;
+  document.getElementById('mock-active').innerHTML=html;
+}
+
+function answerMock(idx,optIdx){
+  if(mockAnswers[idx]!==undefined) return;
+  mockAnswers[idx]=optIdx;
+  const q=mockQuestions[idx];
+  const card=document.getElementById('mcard-'+idx);
+  if(!card) return;
+  const opts=card.querySelectorAll('.mcq-opt');
+  opts.forEach((el,oi)=>{
+    el.classList.add('disabled');
+    if(oi===q.a) el.classList.add('correct');
+    else if(oi===optIdx) el.classList.add('wrong');
+  });
+  const expDiv=card.querySelector('.mcq-explanation')||document.createElement('div');
+  if(!card.querySelector('.mcq-explanation')){
+    expDiv.className='mcq-explanation';
+    card.appendChild(expDiv);
+  }
+  expDiv.style.display='block';
+  expDiv.innerHTML=`<strong>Explanation:</strong> ${q.e}`;
+
+  const answered_count=Object.keys(mockAnswers).length;
+  const progress=card.closest('#mock-active');
+  if(progress){
+    const pb=progress.querySelector('.mcq-progress-fill');
+    if(pb) pb.style.width=(answered_count/mockQuestions.length*100)+'%';
+    const countEl=progress.querySelector('p[style]');
+    if(countEl) countEl.textContent=`${answered_count}/${mockQuestions.length} answered`;
+  }
+}
+
+function startTimer(seconds){
+  mockTimeLeft=seconds;
+  clearInterval(mockTimer);
+  mockTimer=setInterval(()=>{
+    mockTimeLeft--;
+    const el=document.getElementById('mock-timer-display');
+    if(el){
+      el.textContent=formatTime(mockTimeLeft);
+      if(mockTimeLeft<=300) el.style.color='var(--danger)';
+    }
+    if(mockTimeLeft<=0){clearInterval(mockTimer);finishMock();}
+  },1000);
+}
+
+function formatTime(s){
+  const m=Math.floor(s/60);
+  const sec=s%60;
+  return `${m}:${sec.toString().padStart(2,'0')}`;
+}
+
+function finishMock(){
+  clearInterval(mockTimer);
+  let correct=0;
+  const bySubject={};
+  mockQuestions.forEach((q,idx)=>{
+    const ans=mockAnswers[idx];
+    if(!bySubject[q.sub]) bySubject[q.sub]={correct:0,total:0};
+    bySubject[q.sub].total++;
+    if(ans===q.a){correct++;bySubject[q.sub].correct++;}
+  });
+  const total=mockQuestions.length;
+  const pct=Math.round(correct/total*100);
+  let grade,cls;
+  if(pct>=80){grade='Distinction';cls='excellent';}
+  else if(pct>=60){grade='Pass';cls='good';}
+  else{grade='Needs More Prep';cls='poor';}
+
+  let breakdownHTML='';
+  const subNames={english:'English',gk:'General Knowledge',pak:'Pakistan Studies',isl:'Islamiat',math:'Mathematics'};
+  Object.entries(bySubject).forEach(([sub,data])=>{
+    const sPct=Math.round(data.correct/data.total*100);
+    breakdownHTML+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border)">
+      <span style="font-weight:500">${subNames[sub]||sub}</span>
+      <span style="color:${sPct>=70?'var(--success)':sPct>=50?'var(--gold)':'var(--danger)'};">${data.correct}/${data.total} (${sPct}%)</span>
+    </div>`;
+  });
+
+  document.getElementById('mock-active').innerHTML=`
+  <div class="result-screen fade-in">
+    <div class="result-circle ${cls}">
+      <div class="result-pct">${pct}%</div>
+      <div class="result-pct-label">${correct}/${total}</div>
+    </div>
+    <h3 class="result-grade">${grade}</h3>
+    <p class="result-msg" style="margin-bottom:2rem">${pct>=70?'Great performance! You are ready for the LAT.':pct>=50?'Good effort — keep practising weak areas.':'Focus on review and retry. You can do it!'}</p>
+    <div style="background:var(--cream);border-radius:var(--radius);padding:1.25rem;margin-bottom:2rem;text-align:left">
+      <p style="font-weight:600;color:var(--navy);margin-bottom:0.5rem">Subject Breakdown</p>
+      ${breakdownHTML}
+    </div>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="btn-sm btn-gold" onclick="retryMock()">↺ Retry Mock Test</button>
+      <button class="btn-sm btn-navy" onclick="showPage('mcqs')">Practice MCQs</button>
+    </div>
+  </div>`;
+}
+
+function retryMock(){
+  clearInterval(mockTimer);
+  mockAnswers={};
+  mockTimeLeft=0;
+  document.getElementById('mock-active').style.display='none';
+  document.getElementById('mock-setup').style.display='block';
+}
+
+// ==================== CONTACT ====================
+function submitForm(){
+  const name=document.getElementById('cf-name').value.trim();
+  if(!name){showToast('Please enter your name','#B5332A');return;}
+  const successEl=document.getElementById('form-success');
+  successEl.style.display='block';
+  setTimeout(()=>{successEl.style.display='none';},6000);
+  showToast('✓ Message sent successfully!','#2D7A4F');
+}
+
+// ==================== UTILITIES ====================
+function showToast(msg,color){
+  const old=document.querySelector('.toast');
+  if(old) old.remove();
+  const t=document.createElement('div');
+  t.className='toast';
+  if(color) t.style.borderLeftColor=color;
+  t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3000);
+}
+
+// ==================== INIT ====================
+renderEssays();
+renderMCQ('english');
+</script>
+</body>
+</html>
